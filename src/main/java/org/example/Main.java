@@ -3,14 +3,16 @@ package org.example;
 import java.sql.SQLOutput;
 import java.util.Scanner;
 
+
 public class Main {
     public static void main(String[] args) {
 
 
         Scanner leitura = new Scanner(System.in);
         String pronto;
-        int resposta;
+        int resposta = (int)Math.round(Math.random()*10);
         int tentativa;
+
 
 
 
@@ -32,17 +34,15 @@ public class Main {
         System.out.println("-----------------------------------------------------");
         pronto = leitura.next();
 
+
+
         switch (pronto){
             case "sim":
-                resposta = 4;
-                System.out.println("Qual número entre 0 a 10 estou pensando?");
-                tentativa = leitura.nextInt();
-                if(tentativa == resposta) {
-                    System.out.println("parabéns, você acertou!");
+                jogo_for();
 
-                }else{
-                    System.out.println("Que pena, você errou!");
-                }
+
+
+
 
                 break;
             case "não":
@@ -51,6 +51,36 @@ public class Main {
             default:
                 System.out.println("Opção Inválida!");
 
+        }
+
+
+    }
+
+    public static void jogo_for(){
+
+        Scanner leitura = new Scanner(System.in);
+        String pronto;
+        int resposta = (int)Math.round(Math.random()*10);
+        int tentativa;
+
+        for(int contador = 0;contador<10;contador++){
+
+            System.out.println("Qual número entre 0 a 10 estou pensando?");
+            tentativa = leitura.nextInt();
+            if(tentativa == resposta) {
+
+                System.out.println("--------------------------------------");
+                System.out.println("|     🎉parabéns, você acertou!🎉    |");
+                System.out.println("--------------------------------------");
+
+            }else{
+                System.out.println("-----------------------------------------");
+                System.out.println("|       ❌ que peba, você errou!❌      |");
+                System.out.println("|        ❌a resposta era "+resposta+"❌           |");
+                System.out.println("-----------------------------------------");
+            }
+
+            resposta = (int)Math.round(Math.random()*10);
         }
 
     }
